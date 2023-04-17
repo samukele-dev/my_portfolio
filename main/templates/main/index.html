@@ -28,6 +28,10 @@ END script blocks
 Start Content
 ================================= -->
 {% block content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+
+
 <section>
     <div class="bannerSection">
         <div class="container">
@@ -39,8 +43,12 @@ Start Content
                 </div>
                 <div class="col-md">
                     <div class="bannerContent">
-                        <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title}}, <br> a {{me.userprofile.title}} </br>
-                        </h1>
+                        <div class="h1 mt-3 wow fadeInUp xlTitle" data-wow-delay=".6s">
+                            Hi, I'm <span class="id-color-2">{{me.first_name|title}},</span><br>a Freelance<br>
+
+                            <span class="typed"></span>
+                        </div>
+
                         <p>{{me.userprofile.bio}}</p>
                         <div class="bannerBtnCol">
                             <div class="row">
@@ -59,7 +67,7 @@ Start Content
 <section>
     <div class="container py-3">
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-            <h1 class="display-4 fw-normal">Education</h1>
+            <h1 class="xlTitle">Education</h1>
             <h3 class="fw-bold">I am a self-taught software developer. </h3>
             <p>I have dedicated countless hours studying programming languages, practicing coding challenges, and building projects. Despite not having a computer science degree, I have gained knowledge through bootcamps and have proven capable of working
                 in the software development field.</p>
@@ -107,163 +115,116 @@ Start Content
 
 <section>
     <div class="sectionSpace pt-0">
-        <div class="container">
-            <div class="row">
-                <!-- <div class="col-md-auto">
-                    <div class="keySkillCol">
-                        <h4 class="smTitle pb-3">Key Skills</h4>
-                        {% for sk in me.userprofile.skills.all %} {% if sk.is_key_skill %}
-                        <div class="keySkillCard">
-                            {% if sk.image %}
-                            <div class="ksIconCol">
-                                <img src="{{sk.image.url}}" alt="...">
-                            </div>
-                            {% endif %}
-                            <span class="ksText">{{sk.name}}</span>
-                        </div>
-                        {% endif %} {% endfor %}
-                    </div>
-                </div> -->
-                <div class="col-md">
-                    <h4 class="smTitle pb-3">Coding Skills</h4>
-                    <div class="progressCol">
-                        <div class="progressCard">
-                            {% for sk in me.userprofile.skills.all %}
-                            <div class="progressCol">
-                                <span class="progressLbl">{{sk.name}}</span>
-                                <div class="row g-2 align-items-center">
-                                    <div class="col">
-                                        <div class="progress progressStyle">
-                                            <div class="progress-bar" role="progressbar" style="width: {{sk.score}}%" aria-valuenow="{{sk.score}}" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <span class="pLbl">{{sk.score}}%</span>
-                                    </div>
+        <div class="container relative">
+            <div class="row align-items-center">
+                <div class="col-12 mt-5">
+                    <h4 class="xlTitle text-center pb-3">Coding Skills</h4>
+                    <div class="d-flex flex-wrap justify-content-center  mt-4 mt-md-5">
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="images/logos/android.svg" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">Python</h6>
+                                    <p class="text-muted mb-0 fs-12">2 Year Experience</p>
                                 </div>
                             </div>
-                            {% endfor %}
-
                         </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="images/logos/Angular.svg" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">Angular</h6>
+                                    <p class="text-muted mb-0 fs-12">1 Year Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="images/logos/bootstrap.svg" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">Bootstrap</h6>
+                                    <p class="text-muted mb-0 fs-12">3 Year Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="images/logos/vue.svg" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">Django</h6>
+                                    <p class="text-muted mb-0 fs-12">1 Year Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="images/logos/react.svg" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">JavaScript</h6>
+                                    <p class="text-muted mb-0 fs-12">8 Months Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="images/logos/mongodb.svg" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">GitHub</h6>
+                                    <p class="text-muted mb-0 fs-12">3 Months Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="images/logos/laravel.svg" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">Figma</h6>
+                                    <p class="text-muted mb-0 fs-12">1 Year Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="images/logos/nodejs-icon.svg" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">Node.js</h6>
+                                    <p class="text-muted mb-0 fs-12">10 Months Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
                     </div>
+                    <!-- End div -->
                 </div>
-</section>
+                <!-- End Col -->
 
-<section id="section-about" class="no-bottom p-0">
-    <div class="container relative">
-        <div class="row align-items-center">
-            <!-- <div class="col-md-6 wow fadeInUp">
-                <img src="images/misc/3.png" class="img-fluid" alt="">
-            </div> -->
-
-            <div class="col-12 mt-5">
-                <div class="d-flex flex-wrap justify-content-center  mt-4 mt-md-5">
-                    <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                        <div class="d-flex align-items-center">
-                            <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                <img src="images/logos/android.svg" alt="" class="" height="34">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0 fw-medium text-gray-700">Python</h6>
-                                <p class="text-muted mb-0 fs-12">2 Year Experience</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/div-->
-                    <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                        <div class="d-flex align-items-center">
-                            <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                <img src="images/logos/Angular.svg" alt="" class="" height="34">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0 fw-medium text-gray-700">Angular</h6>
-                                <p class="text-muted mb-0 fs-12">1 Year Experience</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/div-->
-                    <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                        <div class="d-flex align-items-center">
-                            <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                <img src="images/logos/bootstrap.svg" alt="" class="" height="34">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0 fw-medium text-gray-700">Bootstrap</h6>
-                                <p class="text-muted mb-0 fs-12">3 Year Experience</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/div-->
-                    <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                        <div class="d-flex align-items-center">
-                            <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                <img src="images/logos/vue.svg" alt="" class="" height="34">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0 fw-medium text-gray-700">Django</h6>
-                                <p class="text-muted mb-0 fs-12">1 Year Experience</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/div-->
-                    <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                        <div class="d-flex align-items-center">
-                            <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                <img src="images/logos/react.svg" alt="" class="" height="34">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0 fw-medium text-gray-700">JavaScript</h6>
-                                <p class="text-muted mb-0 fs-12">8 Months Experience</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/div-->
-                    <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                        <div class="d-flex align-items-center">
-                            <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                <img src="images/logos/mongodb.svg" alt="" class="" height="34">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0 fw-medium text-gray-700">GitHub</h6>
-                                <p class="text-muted mb-0 fs-12">3 Months Experience</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/div-->
-                    <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                        <div class="d-flex align-items-center">
-                            <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                <img src="images/logos/laravel.svg" alt="" class="" height="34">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0 fw-medium text-gray-700">Figma</h6>
-                                <p class="text-muted mb-0 fs-12">1 Year Experience</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/div-->
-                    <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                        <div class="d-flex align-items-center">
-                            <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                <img src="images/logos/nodejs-icon.svg" alt="" class="" height="34">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0 fw-medium text-gray-700">Node.js</h6>
-                                <p class="text-muted mb-0 fs-12">10 Months Experience</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/div-->
-                </div>
-                <!-- End div -->
             </div>
-            <!-- End Col -->
 
         </div>
-    </div>
 </section>
-
-
 
 <section>
     <div class="sectionSpaceSm lightBg">
@@ -336,7 +297,8 @@ Start Content
                 {% endif %} {% endfor %}
 
             </div>
-            <div class="testimonialCol">
+            <!-- Start Testimonials -->
+            <!-- <div class="testimonialCol">
                 <h4 class="smText regular d-block">Testimonials</h4>
                 <div class="testimonialSlider">
                     <div class="swiper testimonialSwiper">
@@ -368,7 +330,8 @@ Start Content
 
 
                 </div>
-            </div>
+            </div> -->
+            <!-- Start Testimonials -->
         </div>
     </div>
 </section>
