@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from django.contrib import messages
+from django.conf import settings
+from django.core.mail import send_mail
+from .forms import ContactForm
+from main.forms import ContactForm
 
 
 from . models import (
@@ -11,7 +15,15 @@ from . models import (
 from django.views import generic
 
 
-# from . forms import ContactForm
+class ContactView(generic.FormView):
+	template_name = "main/contact.html"
+	form_class = ContactForm
+	success_url = "/"
+	
+	def form_valid(self, form):
+		form.save()
+		messages.success(self.request, 'Thank you. We will be in touch soon.')
+		return super().form_valid(form)
 
 class IndexView(generic.TemplateView):
     template_name = "main/index.html"
@@ -24,19 +36,7 @@ class IndexView(generic.TemplateView):
 
         context["certificates"] = certificates
         context["portfolio"] = portfolio
-        return context
-    
-# class ContactView(generic.FormView):
-#     template_name = "main/contact.html"
-#     form_class = ContactForm
-#     success_url = "/"
-
-
-    # def form_valid(self, form):
-    #    form.save()
-    #    messages.success(self.request, 'Thank you. We will be in touch')
-    #    return super().form_valid(form)
-    
+        return context    
 
 class PortfolioView(generic.ListView):
     model = Portfolio
@@ -46,7 +46,6 @@ class PortfolioView(generic.ListView):
     def get_queryset(self):
         return super().get_queryset().filter(is_active=True)
     
-
 class PortfolioDetailView(generic.DetailView):
     model = Portfolio
     template_name = "main/portfolio-detail.html"

@@ -31,10 +31,11 @@ Start Content
 <section>
     <div class="innerPageBannerCol p-3">
         <div class="container">
-            <div class="row g-4 g-md-3  align-items-center">
-                <div class="col-md-6">
+            <div class="row g-4 g-md-3 text-center align-items-center">
+                <div class="col">
                     <div class="bannerContent">
-                        <h1 class="xlTitle pb-md-3">{{object.name}}</h1>
+                        <h3 class="fw-bold">Hi, I aim to respond within 24 hours. </h3>
+                        <h1 class="xlTitle pb-md-3">Contact me below</h1>
                     </div>
                 </div>
             </div>
@@ -43,9 +44,18 @@ Start Content
 </section>
 
 <section>
-    <div class="sectionSpaceSm">
-        <div class="container">
-            {{object.body|safe}}
+    <div class="lightBg ">
+        <div class="container ">
+            <form id="contactForm" method="POST" action="/contact/">
+                {% csrf_token %}
+                <label for="name">Name</label> {{form.name}}
+
+                <label for="email">Email</label> {{form.email}}
+
+                <label for="subject">Message</label> {{form.message}}
+
+                <input class='btn btnPrimary' type="submit" value="Submit">
+            </form>
         </div>
     </div>
 </section>

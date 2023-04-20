@@ -8,7 +8,7 @@ Start Navigation Bar
             <div class="row align-items-center">
                 <div class="col-auto">
                     <div class="logoCol">
-                        <a href="{% url 'main:home' %}"><img src="{% static 'images/logo.png' %}" alt="..."></a>
+                        <a href="{% url 'main:home' %}"><img src="{% static 'images/logos/logo.png' %}" alt="..."></a>
                     </div>
                 </div>
                 <div class="col">
@@ -17,11 +17,13 @@ Start Navigation Bar
                 <span class="navToggle__text">Toggle Menu</span>
             </button>
                     </div>
-                    <div class="navCollapseCol">
-                        <div class="navCol">
+
+                    <div class="navCollapseCol text-center">
+                        <div class="navCol text-center">
                             <ul>
                                 <li><a href="{% url 'main:home' %}">Home</a></li>
-                                <li><a href="{% url 'main:portfolios' %}">Portfolio</a></li>
+                                <li><a href="{% url 'main:portfolios' %}">Projects</a></li>
+                                <li><a href="{% url 'main:contact' %}">Contact</a></li>
                             </ul>
                         </div>
                     </div>

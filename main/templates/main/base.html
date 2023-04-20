@@ -13,8 +13,8 @@
     <meta name="description" content="{% block description %}{% endblock %}">
     <meta name="keywords" content="{% block keywords %}{% endblock %}">
 
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/icon.jpg' %}">
-    <link rel="apple-touch-icon" type="image/jpg" href="{% static 'images/icon.jpg' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logos/icon.png' %}">
+    <link rel="apple-touch-icon" type="image/jpg" href="{% static 'images/logos/icon.jpg' %}">
 
     <!-- ================================
     Start CSS
@@ -41,7 +41,7 @@
 
     <script>
         var options = {
-            strings: ['Software Engineer', 'Web Designer'],
+            strings: ['Software Developer', 'Web Designer'],
             typeSpeed: 50,
             backSpeed: 25,
             loop: true
@@ -49,6 +49,21 @@
 
         var typed = new Typed('.typed', options);
     </script>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        document.addEventListener('mousedown', () => {
+            cursor.classList.add('active');
+        });
+        document.addEventListener('mouseup', () => {
+            cursor.classList.remove('active');
+        });
+    </script>
+
     {% block extend_footer %}{% endblock %}
     <!-- ================================
     End Scripts

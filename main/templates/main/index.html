@@ -31,6 +31,117 @@ Start Content
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
 
+<div class="cursor"></div>
+
+<style>
+    .cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #000;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: all 0.3s ease-out;
+    }
+    
+    .cursor.active {
+        transform: scale(1.5);
+        border-color: #f00;
+    }
+</style>
+
+<style>
+    .circle {
+        position: fixed;
+        border-radius: 50%;
+        background: #c3c1c4;
+        animation: ripple 15s infinite;
+        box-shadow: 0px 0px 1px 0px #508fb9;
+        pointer-events: none;
+        /* disable mouse events */
+        z-index: -1;
+        /* position behind other elements */
+    }
+    
+    .small {
+        width: 200px;
+        height: 200px;
+        left: -100px;
+        bottom: -100px;
+    }
+    
+    .medium {
+        width: 300px;
+        height: 400px;
+        left: -200px;
+        bottom: -200px;
+    }
+    
+    .large {
+        width: 500px;
+        height: 600px;
+        left: -300px;
+        bottom: -300px;
+    }
+    
+    .xlarge {
+        width: 700px;
+        height: 800px;
+        left: -400px;
+        bottom: -400px;
+    }
+    
+    .xxlarge {
+        width: 900px;
+        height: 1000px;
+        left: -500px;
+        bottom: -500px;
+    }
+    
+    .shade1 {
+        opacity: 0.2;
+    }
+    
+    .shade2 {
+        opacity: 0.5;
+    }
+    
+    .shade3 {
+        opacity: 0.7;
+    }
+    
+    .shade4 {
+        opacity: 0.8;
+    }
+    
+    .shade5 {
+        opacity: 0.9;
+    }
+    
+    @keyframes ripple {
+        0% {
+            transform: scale(0.8);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(0.8);
+        }
+    }
+</style>
+
+<div class="ripple-background">
+    <div class="circle xxlarge shade1"></div>
+    <div class="circle xlarge shade2"></div>
+    <div class="circle large shade3"></div>
+    <div class="circle medium shade4"></div>
+</div>
+
+<!-- float text begin -->
+
+<!-- float text close -->
 
 <section>
     <div class="bannerSection">
@@ -68,20 +179,21 @@ Start Content
     <div class="container py-3">
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
             <h1 class="xlTitle">Education</h1>
+
             <h3 class="fw-bold">I am a self-taught software developer. </h3>
             <p>I have dedicated countless hours studying programming languages, practicing coding challenges, and building projects. Despite not having a computer science degree, I have gained knowledge through bootcamps and have proven capable of working
                 in the software development field.</p>
         </div>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
             <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card mb-4 rounded-3 shadow-sm" style="border-color: #9c07b6;">
                     <div class="card-header py-3">
                         <h4 class="my-0 fw-normal">HyperionDev</h4>
                         <p>2022-2023</p>
                     </div>
                     <div class="card-body">
                         <p>Software Engineer bootcamp building real-world applications, I gained skills in using Object Oriented Programming and agile development with popular languages like Python and django web framework</p>
-                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">View Certificate</button>
+                        <a href="https://www.hyperiondev.com/portfolio/92793/" target="_blank"><button type="button" class="btn btnPrimary">View Certificate</button></a>
                     </div>
                 </div>
             </div>
@@ -93,7 +205,7 @@ Start Content
                     </div>
                     <div class="card-body">
                         <p>Completed a 2 weeks bootcamp learning fundermentals of javascript programming, I developed skills in Syntax and data types, DOM manipulation, using functions and scope Arrays and objects.</p>
-                        <button type="button" class="w-100 btn btn-lg btn-primary">View Certificate</button>
+                        <a href="https://www.freecodecamp.org/certification/_samukele_/javascript-algorithms-and-data-structures" target="_blank"><button type="button" class="btn btnPrimary">View Certificate</button></a>
                     </div>
                 </div>
             </div>
@@ -104,8 +216,8 @@ Start Content
                         <p>2020-2022</p>
                     </div>
                     <div class="card-body">
-                        <p>During this time i was learning JavaScript Algorithyms and Data Structures, focus was on creating interactive content and styling, programming with OOP, Asynchronous programming and debugging techniques.</p>
-                        <button type="button" class="w-100 btn btn-lg btn-primary">View Certificate</button>
+                        <p>Acquired knowledge on using JavaScript Algorithyms and Data Structures, focus was on creating interactive content and styling, programming with OOP, Asynchronous programming and debugging techniques.</p>
+                        <a href="https://www.freecodecamp.org/certification/_samukele_/javascript-algorithms-and-data-structures" target="_blank"><button type="button" class="btn btnPrimary">View Certificate</button></a>
                     </div>
                 </div>
             </div>
@@ -123,7 +235,7 @@ Start Content
                         <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
                             <div class="d-flex align-items-center">
                                 <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                    <img src="images/logos/android.svg" alt="" class="" height="34">
+                                    <img src="{% static 'images/logos/python.png' %}" alt="" class="" height="34">
                                 </div>
                                 <div class="ms-3">
                                     <h6 class="mb-0 fw-medium text-gray-700">Python</h6>
@@ -135,31 +247,7 @@ Start Content
                         <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
                             <div class="d-flex align-items-center">
                                 <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                    <img src="images/logos/Angular.svg" alt="" class="" height="34">
-                                </div>
-                                <div class="ms-3">
-                                    <h6 class="mb-0 fw-medium text-gray-700">Angular</h6>
-                                    <p class="text-muted mb-0 fs-12">1 Year Experience</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/div-->
-                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                            <div class="d-flex align-items-center">
-                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                    <img src="images/logos/bootstrap.svg" alt="" class="" height="34">
-                                </div>
-                                <div class="ms-3">
-                                    <h6 class="mb-0 fw-medium text-gray-700">Bootstrap</h6>
-                                    <p class="text-muted mb-0 fs-12">3 Year Experience</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/div-->
-                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                            <div class="d-flex align-items-center">
-                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                    <img src="images/logos/vue.svg" alt="" class="" height="34">
+                                    <img src="{% static 'images/logos/django.png' %}" alt="" class="" height="34">
                                 </div>
                                 <div class="ms-3">
                                     <h6 class="mb-0 fw-medium text-gray-700">Django</h6>
@@ -171,11 +259,11 @@ Start Content
                         <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
                             <div class="d-flex align-items-center">
                                 <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                    <img src="images/logos/react.svg" alt="" class="" height="34">
+                                    <img src="{% static 'images/logos/bootstrap.svg' %}" alt="" class="" height="34">
                                 </div>
                                 <div class="ms-3">
-                                    <h6 class="mb-0 fw-medium text-gray-700">JavaScript</h6>
-                                    <p class="text-muted mb-0 fs-12">8 Months Experience</p>
+                                    <h6 class="mb-0 fw-medium text-gray-700">Bootstrap</h6>
+                                    <p class="text-muted mb-0 fs-12">3 Year Experience</p>
                                 </div>
                             </div>
                         </div>
@@ -183,22 +271,10 @@ Start Content
                         <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
                             <div class="d-flex align-items-center">
                                 <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                    <img src="images/logos/mongodb.svg" alt="" class="" height="34">
+                                    <img src="{% static 'images/logos/javascript.png' %}" alt="" class="" height="34">
                                 </div>
                                 <div class="ms-3">
-                                    <h6 class="mb-0 fw-medium text-gray-700">GitHub</h6>
-                                    <p class="text-muted mb-0 fs-12">3 Months Experience</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/div-->
-                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
-                            <div class="d-flex align-items-center">
-                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                    <img src="images/logos/laravel.svg" alt="" class="" height="34">
-                                </div>
-                                <div class="ms-3">
-                                    <h6 class="mb-0 fw-medium text-gray-700">Figma</h6>
+                                    <h6 class="mb-0 fw-medium text-gray-700">Javascript</h6>
                                     <p class="text-muted mb-0 fs-12">1 Year Experience</p>
                                 </div>
                             </div>
@@ -207,11 +283,47 @@ Start Content
                         <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
                             <div class="d-flex align-items-center">
                                 <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
-                                    <img src="images/logos/nodejs-icon.svg" alt="" class="" height="34">
+                                    <img src="{% static 'images/logos/Angular.svg' %}" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">Angular</h6>
+                                    <p class="text-muted mb-0 fs-12">1 year Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="{% static 'images/logos/github.png' %}" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">GitHub</h6>
+                                    <p class="text-muted mb-0 fs-12">3 years Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="{% static 'images/logos/figma.png' %}" alt="" class="" height="34">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0 fw-medium text-gray-700">Figma</h6>
+                                    <p class="text-muted mb-0 fs-12">3 Years Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/div-->
+                        <div class="mx-3 ms-sm-0 ms-sm-0 mb-3 card-bg rounded p-1 pe-3 p-md-3 pe-md-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <div class="thumb-md d-flex flex-wrap justify-content-center align-items-center">
+                                    <img src="{% static 'images/logos/nodejs-icon.svg' %}" alt="" class="" height="34">
                                 </div>
                                 <div class="ms-3">
                                     <h6 class="mb-0 fw-medium text-gray-700">Node.js</h6>
-                                    <p class="text-muted mb-0 fs-12">10 Months Experience</p>
+                                    <p class="text-muted mb-0 fs-12">1 year Experience</p>
                                 </div>
                             </div>
                         </div>
@@ -264,6 +376,7 @@ Start Content
 </section>
 
 <section>
+    <div id="projects"></div>
     <div class="sectionSpace">
         <div class="container">
             <div class="portfolioCol">
@@ -327,14 +440,13 @@ Start Content
                         <div class="test-swiper-button-next swiper-button-next swiperBtnStyle"></div>
                         <div class="test-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
                     </div>
-
-
                 </div>
             </div> -->
             <!-- Start Testimonials -->
         </div>
     </div>
 </section>
+
 
 {% endblock %}
 <!-- ================================
