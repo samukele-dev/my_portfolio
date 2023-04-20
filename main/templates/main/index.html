@@ -33,6 +33,7 @@ Start Content
 
 <div class="cursor"></div>
 
+<!-- START cursor styling -->
 <style>
     .cursor {
         position: fixed;
@@ -50,7 +51,9 @@ Start Content
         border-color: #f00;
     }
 </style>
+<!-- END cursor styling -->
 
+<!-- START ripple-backgroung styling -->
 <style>
     .circle {
         position: fixed;
@@ -131,18 +134,22 @@ Start Content
         }
     }
 </style>
+<!-- END ripple-backgroung styling -->
 
+<!-- START ripple-backgroung -->
 <div class="ripple-background">
     <div class="circle xxlarge shade1"></div>
     <div class="circle xlarge shade2"></div>
     <div class="circle large shade3"></div>
     <div class="circle medium shade4"></div>
 </div>
+<!-- END ripple-backgroung -->
 
 <!-- float text begin -->
 
 <!-- float text close -->
 
+<!-- START content -->
 <section>
     <div class="bannerSection">
         <div class="container">
@@ -174,7 +181,9 @@ Start Content
         </div>
     </div>
 </section>
+<!-- END content -->
 
+<!-- START Education -->
 <section>
     <div class="container py-3">
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
@@ -224,7 +233,10 @@ Start Content
         </div>
     </div>
 </section>
+<!-- END Education -->
 
+
+<!-- START Coding Skills -->
 <section>
     <div class="sectionSpace pt-0">
         <div class="container relative">
@@ -332,22 +344,21 @@ Start Content
                     <!-- End div -->
                 </div>
                 <!-- End Col -->
-
             </div>
-
         </div>
 </section>
+<!-- END Coding Skills -->
 
+<!-- START Certificate details -->
 <section>
     <div class="sectionSpaceSm lightBg">
         <div class="container">
             <div class="row pb-3">
                 <div class="col">
-                    <h4 class="smText regular">Certificates</h4>
+                    <h4 class="xlTitle regular text-center">Certificate details</h4>
                 </div>
-
             </div>
-            <div class="sliderOuter">
+            <div class="sliderOuter swipe-indicator">
                 <div class="swiper certificatesSlider">
                     <div class="swiper-wrapper">
                         {% for c in certificates %} {% if c.is_active %}
@@ -374,7 +385,9 @@ Start Content
         </div>
     </div>
 </section>
+<!-- END Certificate details -->
 
+<!-- START Projects -->
 <section>
     <div id="projects"></div>
     <div class="sectionSpace">
@@ -446,6 +459,7 @@ Start Content
         </div>
     </div>
 </section>
+<!-- END Projects -->
 
 
 {% endblock %}
